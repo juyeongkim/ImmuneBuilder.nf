@@ -15,7 +15,7 @@ Follow this to install Nextflow: https://www.nextflow.io/docs/latest/getstarted.
 ### Run pipeline
 
 ```sh
-./nextflow run juyeongkim/ImmuneBuilder.nf --input /your/input/dir --output /your/output/dir
+./nextflow run https://github.com/juyeongkim/ImmuneBuilder.nf -r main --input /your/input/dir --output /your/output/dir
 ```
 
 
