@@ -6,6 +6,19 @@
 
 A Nextflow pipeline based on [ImmuneBuilder](https://github.com/brennanaba/ImmuneBuilder).
 
+## Running Nextflow
+
+### Install Nextflow
+
+Follow this to install Nextflow: https://www.nextflow.io/docs/latest/getstarted.html
+
+### Run pipeline
+
+```sh
+./nextflow run juyeongkim/ImmuneBuilder.nf --input /your/input/dir --output /your/output/dir
+```
+
+
 ## Using Docker image locally
 
 ### Get Docker image
