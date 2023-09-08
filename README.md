@@ -30,14 +30,14 @@ docker pull ghcr.io/juyeongkim/immunebuilder:latest
 # Or build docker image
 git clone https://github.com/juyeongkim/ImmuneBuilder.nf.git
 cd juyeongkim/ImmuneBuilder.nf
-docker build -t juyeongkim/immunebuilder:latest .
+docker build -t ghcr.io/juyeongkim/immunebuilder:latest .
 ```
 
 ### Initiate a Docker container
 
 ```sh
 cd /WHERE/YOUR/FASTA/FILES/ARE
-docker run --volume $PWD:/data -it juyeongkim/immunebuilder:latest
+docker run --volume $PWD:/data -it ghcr.io/juyeongkim/immunebuilder:latest
 ```
 
 ### Run ABodyBuilder2 in Docker container
