@@ -18,13 +18,13 @@ process ImmuneBuilder {
 
   num_lines=\$(wc -l < ${sample_id})
   if [[ \$num_lines == 2 ]]; then
-    NanoBodyBuilder2 -v --fasta_file ${sample_id} --output ${sample_id}.pdb
+    NanoBodyBuilder2 -v --n_threads ${task.cpus} --fasta_file ${sample_id} --output ${sample_id}.pdb
   elif [[ \$num_lines == 4 ]]; then
     first_line=\$(head -n 1 ${sample_id})
     if [[ \$first_line == ">H" ]]; then
-      ABodyBuilder2 -v --fasta_file ${sample_id} --output ${sample_id}.pdb
+      ABodyBuilder2 -v --n_threads ${task.cpus} --fasta_file ${sample_id} --output ${sample_id}.pdb
     elif [[ \$first_line == ">A" ]]; then
-      TCRBuilder2 -v --fasta_file ${sample_id} --output ${sample_id}.pdb
+      TCRBuilder2 -v --n_threads ${task.cpus} --fasta_file ${sample_id} --output ${sample_id}.pdb
     else
       echo "Invalid FASTA file"
       exit 1
