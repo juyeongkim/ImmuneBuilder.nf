@@ -26,6 +26,7 @@ Downloaded pipeline are stored in the folder `$HOME/.nextflow/assets`.
 
 ```sh
 cd /where/you/want/to/store/logs/and/intermediate/files
+nextflow pull juyeongkim/immunebuilder
 nextflow run juyeongkim/immunebuilder -r main --input /your/input/dir --output /your/output/dir
 ```
 
@@ -38,6 +39,7 @@ Alternatively, you can run the pipeline on HPC with slurm. First, load the envir
 module load Apptainer
 module load Nextflow
 cd /where/you/want/to/store/logs/and/intermediate/files
+nextflow pull juyeongkim/immunebuilder
 nextflow run juyeongkim/immunebuilder -r main -profile cluster --input /your/input/dir --output /your/output/dir
 ```
 
