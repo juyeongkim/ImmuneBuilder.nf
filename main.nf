@@ -15,7 +15,7 @@ process ImmuneBuilder {
   script:
   """
   #!/bin/bash
-
+  echo ${task.cpus}
   num_lines=\$(wc -l < ${sample_id})
   if [[ \$num_lines == 2 ]]; then
     NanoBodyBuilder2 -v --n_threads ${task.cpus} --fasta_file ${sample_id} --output ${sample_id}.pdb
