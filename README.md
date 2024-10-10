@@ -29,13 +29,14 @@ Downloaded pipeline are stored in the folder `$HOME/.nextflow/assets`.
 | `--input` | Input directory with FASTA files (required) |
 | `--output` | Output directorty to store PDB files (required) |
 | `--max_retries` | Maximum number of time to execute ImmuneBuilder after failing refinement step with OpenMM (optional; default: 5) |
+| `--save_embedding` | Save embedding numpy array as npy file (optional; default: false) |
 
 #### A) Locally (requires docker)
 
 ```sh
 cd /where/you/want/to/store/logs/and/intermediate/files
 nextflow pull juyeongkim/nf-immunebuilder
-nextflow run juyeongkim/nf-immunebuilder -r main --input /your/input/dir --output /your/output/dir
+nextflow run juyeongkim/nf-immunebuilder -r main --input /your/input/dir --output /your/output/dir --max_retries 10 --save_embedding true
 ```
 
 #### B) Cluster
@@ -47,7 +48,7 @@ module load Apptainer
 module load Nextflow
 cd /where/you/want/to/store/logs/and/intermediate/files
 nextflow pull juyeongkim/nf-immunebuilder
-nextflow run juyeongkim/nf-immunebuilder -r main -profile cluster --input /your/input/dir --output /your/output/dir
+nextflow run juyeongkim/nf-immunebuilder -r main -profile cluster --input /your/input/dir --output /your/output/dir --max_retries 10 --save_embedding true
 ```
 
 ## Using Docker image

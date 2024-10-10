@@ -12,6 +12,7 @@ process ImmuneBuilder {
 
   output:
   path "*.pdb"
+  path "*.npy", optional: true
 
   script:
   """
@@ -50,6 +51,11 @@ process ImmuneBuilder {
   print("Starting refinement...")
   res.save(id + ".pdb", n_threads=n_threads)
   print("Refinement finished. Final structure saved as pdb...")
+
+  if "${params.save_embedding}" == "true":
+    embedding = torch.cat(res.encodings, dim=-1)
+    numpy.save(id + ".npy", embedding.numpy())
+    print("Embedding saved as npy...")
   """
 }
 
