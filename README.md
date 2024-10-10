@@ -15,21 +15,28 @@ Follow this to install Nextflow: https://www.nextflow.io/docs/latest/getstarted.
 ### Pull Nextflow pipeline
 
 ```sh
-nextflow pull juyeongkim/immunebuilder
+nextflow pull juyeongkim/nf-immunebuilder
 ```
 
 Downloaded pipeline are stored in the folder `$HOME/.nextflow/assets`.
 
 ### Run pipeline
 
-#### A) Locally
+#### Parameters
+
+| Parameter | Description |
+| --- | --- |
+| `--input` | Input directory with FASTA files (required) |
+| `--output` | Output directorty to store PDB files (required) |
+| `--max_retries` | Maximum number of time to execute ImmuneBuilder after failing refinement step with OpenMM (optional; default: 5) |
+
+#### A) Locally (requires docker)
 
 ```sh
 cd /where/you/want/to/store/logs/and/intermediate/files
-nextflow pull juyeongkim/immunebuilder
-nextflow run juyeongkim/immunebuilder -r main --input /your/input/dir --output /your/output/dir
+nextflow pull juyeongkim/nf-immunebuilder
+nextflow run juyeongkim/nf-immunebuilder -r main --input /your/input/dir --output /your/output/dir
 ```
-
 
 #### B) Cluster
 
@@ -39,10 +46,9 @@ Alternatively, you can run the pipeline on HPC with slurm. First, load the envir
 module load Apptainer
 module load Nextflow
 cd /where/you/want/to/store/logs/and/intermediate/files
-nextflow pull juyeongkim/immunebuilder
-nextflow run juyeongkim/immunebuilder -r main -profile cluster --input /your/input/dir --output /your/output/dir
+nextflow pull juyeongkim/nf-immunebuilder
+nextflow run juyeongkim/nf-immunebuilder -r main -profile cluster --input /your/input/dir --output /your/output/dir
 ```
-
 
 ## Using Docker image
 
@@ -53,8 +59,8 @@ nextflow run juyeongkim/immunebuilder -r main -profile cluster --input /your/inp
 docker pull ghcr.io/juyeongkim/immunebuilder:latest
 
 # Or build docker image
-git clone https://github.com/juyeongkim/immunebuilder.git
-cd juyeongkim/immunebuilder.nf
+git clone https://github.com/juyeongkim/nf-immunebuilder.git
+cd nf-immunebuilder
 docker build -t ghcr.io/juyeongkim/immunebuilder:latest .
 ```
 
