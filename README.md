@@ -44,7 +44,7 @@ nextflow run juyeongkim/nf-immunebuilder -r main --input /your/input/dir --outpu
 Alternatively, you can run the pipeline on HPC with slurm. First, load the environment modules if they are available. If not, please follow the Apptainer and Nextflow documentation to install them first.
 
 ```sh
-module load Apptainer
+module load Apptainer/1.1.6 # newer versions might not work!
 module load Nextflow
 cd /where/you/want/to/store/logs/and/intermediate/files
 nextflow pull juyeongkim/nf-immunebuilder

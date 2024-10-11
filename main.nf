@@ -13,7 +13,7 @@ process ImmuneBuilder {
   output:
   path "*.pdb"
   path "*.npy", optional: true
-
+  
   script:
   """
   #!/usr/bin/env python3
@@ -25,7 +25,7 @@ process ImmuneBuilder {
   from ImmuneBuilder.util import sequence_dict_from_fasta
   import torch
   import numpy
-  print(torch.cuda.is_available())
+
   n_threads = ${task.cpus}
   id = "${sample_id}"
 
