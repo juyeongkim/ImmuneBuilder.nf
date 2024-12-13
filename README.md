@@ -12,6 +12,24 @@ A Nextflow pipeline based on [ImmuneBuilder](https://github.com/brennanaba/Immun
 
 Follow this to install Nextflow: https://www.nextflow.io/docs/latest/getstarted.html
 
+### Install Docker (Linux)
+
+Follow the distribution specific installation instructions on the docker site:
+
+https://docs.docker.com/engine/install/
+
+`nf-immunebuilder` requires that the user be added to the docker group. Follow the "Manage Docker as a non-root user" post installation instructions here:
+
+https://docs.docker.com/engine/install/linux-postinstall/
+
+Then optionally pull the docker image:
+
+``` sh
+docker pull ghcr.io/juyeongkim/immunebuilder:latest
+```
+
+If the docker image is not pulled, it will be pulled when the pipeline is run.
+
 ### Pull Nextflow pipeline
 
 ```sh
